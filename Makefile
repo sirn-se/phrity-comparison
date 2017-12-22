@@ -29,7 +29,7 @@ test: composer.lock
 # Run tests with clover coverage report
 coverage: composer.lock
 	./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-	./vendor/bin/coveralls -v
+	./vendor/bin/php-coveralls -v
 
 # INITIAL INSTALL
 # Ensures composer is installed
