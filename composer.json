@@ -1,6 +1,7 @@
 {
   "name": "phrity/comparison",
   "description": "Interfaces and helper trait for comparing objects.",
+  "license": "MIT",
   "authors": [
     {
       "name": "Sören Jensen",
