@@ -15,14 +15,20 @@ class ComparableObject implements Comparable
 
     public function __construct($value)
     {
-      $this->value = $value;
+        $this->value = $value;
     }
 
     public function compare($that)
     {
-      if (!is_integer($that->value)) throw new IncomparableException('Can not be compared');
-      if ($that->value < $this->value) return -1;
-      if ($that->value > $this->value) return 1;
-      return 0;
+        if (!is_integer($that->value)) {
+            throw new IncomparableException('Can not be compared');
+        }
+        if ($that->value < $this->value) {
+            return -1;
+        }
+        if ($that->value > $this->value) {
+            return 1;
+        }
+        return 0;
     }
 }
