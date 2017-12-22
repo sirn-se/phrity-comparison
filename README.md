@@ -21,9 +21,9 @@ $this->greaterThanOrEqual($that); // True if $that is greater than or equal to $
 $this->lessThan($that);           // True if $that is less than $this
 $this->lessThanOrEqual($that);    // True if $that is less than or equal to $this
 
-// 0 if $that is equal to $this
+//  0 if $that is equal to $this
 // -1 if $that is less than $this
-// 1 if $that is greater than $this
+//  1 if $that is greater than $this
 $this->compare($that);
 ```
 
