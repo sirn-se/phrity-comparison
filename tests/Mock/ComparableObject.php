@@ -23,10 +23,10 @@ class ComparableObject implements Comparable
         if (!is_integer($that->value)) {
             throw new IncomparableException('Can not be compared');
         }
-        if ($that->value < $this->value) {
+        if ($this->value < $that->value) {
             return -1;
         }
-        if ($that->value > $this->value) {
+        if ($this->value > $that->value) {
             return 1;
         }
         return 0;

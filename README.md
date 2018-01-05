@@ -8,7 +8,7 @@ Interfaces and helper trait for comparing objects.
 ## Equalable interface
 
 ```php
-$this->equals($that); // True if $that is equal to $this
+$this->equals($that); // True if $this is equal to $that
 ```
 
 ## Comparable interface
@@ -16,14 +16,14 @@ $this->equals($that); // True if $that is equal to $this
 Extends Equalable interface
 
 ```php
-$this->greaterThan($that);        // True if $that is greater than $this
-$this->greaterThanOrEqual($that); // True if $that is greater than or equal to $this
-$this->lessThan($that);           // True if $that is less than $this
-$this->lessThanOrEqual($that);    // True if $that is less than or equal to $this
+$this->greaterThan($that);        // True if $this is greater than $that
+$this->greaterThanOrEqual($that); // True if $this is greater than or equal to $that
+$this->lessThan($that);           // True if $this is less than $that
+$this->lessThanOrEqual($that);    // True if $this is less than or equal to $that
 
-//  0 if $that is equal to $this
-// -1 if $that is less than $this
-//  1 if $that is greater than $this
+//  0 if $this is equal to $that
+// -1 if $this is less than $that
+//  1 if $this is greater than $that
 $this->compare($that);
 ```
 

@@ -22,8 +22,8 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
 
     public function testLessThan()
     {
-        $a = new ComparableObject(2);
-        $b = new ComparableObject(1);
+        $a = new ComparableObject(1);
+        $b = new ComparableObject(2);
 
         $this->assertEquals(-1, $a->compare($b));
         $this->assertFalse($a->equals($b));
@@ -35,8 +35,8 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
 
     public function testGreaterThan()
     {
-        $a = new ComparableObject(1);
-        $b = new ComparableObject(2);
+        $a = new ComparableObject(2);
+        $b = new ComparableObject(1);
 
         $this->assertEquals(1, $a->compare($b));
         $this->assertFalse($a->equals($b));

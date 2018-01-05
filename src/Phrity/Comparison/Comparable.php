@@ -6,38 +6,38 @@ interface Comparable extends Equalable
 {
     /**
      * @param  mixed $that            The instance to compare with
-     * @return integer                Must return 0 if $that is equal to $this
-     *                                Must return -1 if $that is less than $this
-     *                                Must return 1 if $that is greater than $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return integer                Must return  0 if $this is equal to $that
+     *                                Must return -1 if $this is less than $that
+     *                                Must return  1 if $this is greater than $that
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function compare($that);
 
     /**
      * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $that is greater than $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return boolean                True if $this is greater than $that
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function greaterThan($that);
 
     /**
      * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $that is greater than or equal to $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return boolean                True if $this is greater than or equal to $that
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function greaterThanOrEqual($that);
 
     /**
      * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $that is less than $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return boolean                True if $this is less than $that
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function lessThan($that);
 
     /**
      * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $that is less than or equal to $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return boolean                True if $this is less than or equal to $this
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function lessThanOrEqual($that);
 }

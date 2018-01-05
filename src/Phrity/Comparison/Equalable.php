@@ -6,8 +6,8 @@ interface Equalable
 {
     /**
      * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $that is equal to $this
-     * @throws IncomparableException  Must throw if $that can not be compared with $this
+     * @return boolean                True if $this is equal to $that
+     * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
     public function equals($that);
 }
