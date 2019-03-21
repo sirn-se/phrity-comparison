@@ -29,6 +29,11 @@ $this->compare($that);
 
 ## Comparison trait
 
-A class using this trait only has to implement the compare() method.
-
-Methods equals(), greaterThan(), greaterThanOrEqual(), lessThan() and lessThanOrEqual() will be provided by the trait, based on the result of compare().
+A class using this trait only has to implement the `compare()` method. Enables the following methods:
+```php
+equals()
+greaterThan()
+greaterThanOrEqual()
+lessThan()
+lessThanOrEqual()
+```
