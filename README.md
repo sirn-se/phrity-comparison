@@ -5,6 +5,13 @@
 
 Interfaces and helper trait for comparing objects.
 
+## Installation
+
+Install with [Composer](https://getcomposer.org/);
+```
+composer require phrity/comparison
+```
+
 ## Equalable interface
 
 ```php
@@ -37,3 +44,7 @@ greaterThanOrEqual()
 lessThan()
 lessThanOrEqual()
 ```
+
+## Versions
+
+* `1.0` - Equalable and Comparable interface, Comparison trait
