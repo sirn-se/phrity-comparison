@@ -14,7 +14,7 @@ deps-update: composer.phar
 	./composer.phar --no-interaction update
 
 # Updates dependencies according to lock file, production optimized
-deps-prod: composer.phar clear-assets
+deps-prod: composer.phar
 	./composer.phar --no-interaction install --no-dev --optimize-autoloader
 
 
