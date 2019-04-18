@@ -1,7 +1,7 @@
 <?php
 /**
  * File for Comparable inteface.
- * Part of Phrity/Comparison package.
+ * @package Phrity > Comparison
  */
 namespace Phrity\Comparison;
 

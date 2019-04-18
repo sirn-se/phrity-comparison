@@ -1,7 +1,7 @@
 <?php
 /**
  * File for ComparisonTrait.
- * Part of Phrity/Comparison package.
+ * @package Phrity > Comparison
  */
 namespace Phrity\Comparison;
 

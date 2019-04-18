@@ -1,6 +1,8 @@
 {
   "name": "phrity/comparison",
+  "type": "library",
   "description": "Interfaces and helper trait for comparing objects.",
+  "keywords": ["comparison", "equalable", "comparable"],
   "license": "MIT",
   "authors": [
     {

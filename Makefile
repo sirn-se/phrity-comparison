@@ -3,6 +3,7 @@ all: deps-install
 
 
 # DEPENDENCY MANAGEMENT
+
 # Updates dependencies according to lock file
 deps-install: composer.phar
 	./composer.phar --no-interaction install
@@ -13,14 +14,20 @@ deps-update: composer.phar
 	./composer.phar --no-interaction update
 
 # Updates dependencies according to lock file, production optimized
-deps-prod: composer.phar
+deps-prod: composer.phar clear-assets
 	./composer.phar --no-interaction install --no-dev --optimize-autoloader
 
 
 # TESTS AND REPORTS
+
 # Code standard check
 cs-check: composer.lock
 	./vendor/bin/phpcs --standard=PSR1,PSR2 --encoding=UTF-8 --report=full --colors src tests
+
+# Check inline documentation
+docs-check: composer.lock
+	./vendor/bin/phpdoc --validate -d src,tests -t phpdoc-temp
+	rm -rf phpdoc-temp
 
 # Run tests
 test: composer.lock
@@ -32,6 +39,7 @@ coverage: composer.lock
 	./vendor/bin/php-coveralls -v
 
 # INITIAL INSTALL
+
 # Ensures composer is installed
 composer.phar:
 	curl -sS https://getcomposer.org/installer | php

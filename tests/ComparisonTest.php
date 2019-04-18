@@ -1,12 +1,22 @@
 <?php
-
+/**
+ * File for comparison test class.
+ * @package Phrity > Comparison
+ */
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
 use PHPUnit_Framework_TestCase;
 
+/**
+ * Test class for comparison tests.
+ */
 class ComparisonTest extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Test equals
+     */
     public function testEquals()
     {
         $a = new ComparableObject(1);
@@ -20,6 +30,9 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($a->greaterThanOrEqual($b));
     }
 
+    /**
+     * Test less than
+     */
     public function testLessThan()
     {
         $a = new ComparableObject(1);
@@ -33,6 +46,9 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($a->greaterThanOrEqual($b));
     }
 
+    /**
+     * Test greater than
+     */
     public function testGreaterThan()
     {
         $a = new ComparableObject(2);
@@ -47,6 +63,7 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test incomparable exception
      * @expectedException Phrity\Comparison\IncomparableException
      */
     public function testIncomparable()
