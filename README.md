@@ -14,7 +14,7 @@ Install with [Composer](https://getcomposer.org/);
 composer require phrity/comparison
 ```
 
-## Equalable interface
+## The Equalable interface
 
 ###  Interface synopsis
 
@@ -31,7 +31,7 @@ interface Phrity\Comparison\Equalable {
 $a->equals($b); // True if $a is equal to $b
 ```
 
-## Comparable interface
+## The Comparable interface
 
 Extends `Equalable` interface.
 
@@ -66,7 +66,7 @@ $a->lessThanOrEqual($b);    // True if $a is less than or equal to $b
 $a->compare($b);
 ```
 
-## ComparisonTrait trait
+## The ComparisonTrait trait
 
 A class using this trait only has to implement the `compare()` method. Enables all other methods in `Equalable` and `Comparable` intefaces.
 
@@ -88,7 +88,7 @@ trait Phrity\Comparison\ComparisonTrait
 }
 ```
 
-## IncomparableException exception
+## The IncomparableException class
 
 Must be thrown if comparison methods receive input they can not compare with.
 
@@ -108,6 +108,7 @@ class Phrity\Comparison\IncomparableException
     public getTrace() : array
     public getTraceAsString() : string
     public __toString() : string
+}
 ```
 
 ## Versions
