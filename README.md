@@ -26,6 +26,8 @@ interface Phrity\Comparison\Equalable {
 }
 ```
 
+###  Examples
+
 ```php
 // $a must implement Equalable, $b can be anything
 $a->equals($b); // True if $a is equal to $b
@@ -52,6 +54,8 @@ interface Phrity\Comparison\Comparable
     abstract public equals(mixed $compare_with) : bool
 }
 ```
+
+###  Examples
 
 ```php
 // $a must implement Comparable, $b can be anything
