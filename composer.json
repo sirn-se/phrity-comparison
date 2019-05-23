@@ -2,12 +2,14 @@
   "name": "phrity/comparison",
   "type": "library",
   "description": "Interfaces and helper trait for comparing objects.",
+  "homepage": "https://phrity.sirn.se/comparison",
   "keywords": ["comparison", "equalable", "comparable"],
   "license": "MIT",
   "authors": [
     {
       "name": "Sören Jensen",
-      "email": "sirn@sirn.se"
+      "email": "sirn@sirn.se",
+      "homepage": "https://phrity.sirn.se"
     }
   ],
   "autoload": {
