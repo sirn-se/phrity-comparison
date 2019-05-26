@@ -5,6 +5,8 @@
 
 Interfaces and helper trait for comparing objects.
 
+Current version supports PHP `5.6` and `7.*`.
+
 ## Installation
 
 Install with [Composer](https://getcomposer.org/);
@@ -12,39 +14,107 @@ Install with [Composer](https://getcomposer.org/);
 composer require phrity/comparison
 ```
 
-## Equalable interface
+## The Equalable interface
+
+###  Interface synopsis
 
 ```php
-$this->equals($that); // True if $this is equal to $that
+interface Phrity\Comparison\Equalable {
+
+    /* Abstract methods */
+    abstract public equals(mixed $compare_with) : bool
+}
 ```
 
-## Comparable interface
-
-Extends Equalable interface
+###  Examples
 
 ```php
-$this->greaterThan($that);        // True if $this is greater than $that
-$this->greaterThanOrEqual($that); // True if $this is greater than or equal to $that
-$this->lessThan($that);           // True if $this is less than $that
-$this->lessThanOrEqual($that);    // True if $this is less than or equal to $that
-
-//  0 if $this is equal to $that
-// -1 if $this is less than $that
-//  1 if $this is greater than $that
-$this->compare($that);
+// $a must implement Equalable, $b can be anything
+$a->equals($b); // True if $a is equal to $b
 ```
 
-## Comparison trait
+## The Comparable interface
 
-A class using this trait only has to implement the `compare()` method. Enables the following methods:
+Extends `Equalable` interface.
+
+###  Interface synopsis
+
 ```php
-equals()
-greaterThan()
-greaterThanOrEqual()
-lessThan()
-lessThanOrEqual()
+interface Phrity\Comparison\Comparable
+    extends Phrity\Comparison\Equalable {
+
+    /* Abstract methods */
+    abstract public greaterThan(mixed $compare_with) : bool
+    abstract public greaterThanOrEqual(mixed $compare_with) : bool
+    abstract public lessThan(mixed $compare_with) : bool
+    abstract public lessThanOrEqual(mixed $compare_with) : bool
+    abstract public compare(mixed $compare_with) : int
+
+    /* Inherited from Equalable */
+    abstract public equals(mixed $compare_with) : bool
+}
+```
+
+###  Examples
+
+```php
+// $a must implement Comparable, $b can be anything
+$a->greaterThan($b);        // True if $a is greater than $b
+$a->greaterThanOrEqual($b); // True if $a is greater than or equal to $b
+$a->lessThan($b);           // True if $a is less than $b
+$a->lessThanOrEqual($b);    // True if $a is less than or equal to $b
+
+//  0 if $a is equal to $b
+// -1 if $a is less than $b
+//  1 if $a is greater than $b
+$a->compare($b);
+```
+
+## The ComparisonTrait trait
+
+A class using this trait only has to implement the `compare()` method. Enables all other methods in `Equalable` and `Comparable` intefaces.
+
+###  Trait synopsis
+
+```php
+trait Phrity\Comparison\ComparisonTrait
+    implements Phrity\Comparison\Comparable {
+
+    /* Methods */
+    public equals(mixed $compare_with) : bool
+    public greaterThan(mixed $compare_with) : bool
+    public greaterThanOrEqual(mixed $compare_with) : bool
+    public lessThan(mixed $compare_with) : bool
+    public lessThanOrEqual(mixed $compare_with) : bool
+
+    /* Inherited from Comparable */
+    abstract public compare(mixed $compare_with) : int
+}
+```
+
+## The IncomparableException class
+
+Must be thrown if comparison methods receive input they can not compare with.
+
+###  Class synopsis
+
+```php
+class Phrity\Comparison\IncomparableException
+    extends InvalidArgumentException {
+
+    /* Inherited from InvalidArgumentException */
+    public __construct([string $message = '' [, int $code = 0 [, Throwable $previous = null]]])
+    public getMessage() : string
+    public getPrevious() : Throwable
+    public getCode() : mixed
+    public getFile() : string
+    public getLine() : int
+    public getTrace() : array
+    public getTraceAsString() : string
+    public __toString() : string
+}
 ```
 
 ## Versions
 
-* `1.0` - Equalable and Comparable interface, Comparison trait
+* `1.0` - `Equalable` and `Comparable` interface, `ComparisonTrait` trait
