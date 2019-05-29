@@ -77,7 +77,26 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test array_filter
+     * Test eqauls filter
+     */
+    public function testEquals()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(2);
+        $comparables = [$a, $b, $c, $d];
+        $condition = new ComparableObject(2);
+
+        $comparator = new Comparator();
+        $filtered = $comparator->equals($condition, $comparables);
+
+        $this->assertEquals([$a, $b, $c, $d], $comparables);
+        $this->assertEquals([$b, $d], $filtered);
+    }
+
+    /**
+     * Test greater than filter
      */
     public function testGreaterThanFilter()
     {
@@ -96,7 +115,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test array_filter
+     * Test greater than or equals filter
      */
     public function testGreaterThanOrEqualFilter()
     {
@@ -114,4 +133,59 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([$a, $c, $d], $filtered);
     }
 
+    /**
+     * Test less than filter
+     */
+    public function testLessThanFilter()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(4);
+        $comparables = [$a, $b, $c, $d];
+        $condition = new ComparableObject(5);
+
+        $comparator = new Comparator();
+        $filtered = $comparator->lessThan($condition, $comparables);
+
+        $this->assertEquals([$a, $b, $c, $d], $comparables);
+        $this->assertEquals([$b, $d], $filtered);
+    }
+
+    /**
+     * Test less than or equals filter
+     */
+    public function testLessThanOrEqualFilter()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(4);
+        $comparables = [$a, $b, $c, $d];
+        $condition = new ComparableObject(4);
+
+        $comparator = new Comparator();
+        $filtered = $comparator->lessThanOrEqual($condition, $comparables);
+
+        $this->assertEquals([$a, $b, $c, $d], $comparables);
+        $this->assertEquals([$b, $d], $filtered);
+    }
+
+    /**
+     * Test minimum
+     */
+    public function testMin()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(4);
+        $comparables = [$a, $b, $c, $d];
+
+        $comparator = new Comparator();
+        $filtered = $comparator->min($comparables);
+
+        $this->assertEquals([$a, $b, $c, $d], $comparables);
+        $this->assertEquals($b, $filtered);
+    }
 }

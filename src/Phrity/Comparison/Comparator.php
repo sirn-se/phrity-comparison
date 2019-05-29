@@ -10,6 +10,9 @@ namespace Phrity\Comparison;
  */
 class Comparator
 {
+
+    // Sort methods
+
     /**
      * Sorts array of comparable items, low to high
      * @param  array $comparables     List of objects implementing Comparable
@@ -19,9 +22,7 @@ class Comparator
     public function sort(array $comparables)
     {
         usort($comparables, function ($item_1, $item_2) {
-            if (!$item_1 instanceof Comparable) {
-                throw new IncomparableException('Items are nor comparable');
-            }
+            $this->verifyComparable($item_1);
             return $item_1->compare($item_2);
         });
         return $comparables;
@@ -36,67 +37,138 @@ class Comparator
     public function rsort(array $comparables)
     {
         usort($comparables, function ($item_1, $item_2) {
-            if (!$item_2 instanceof Comparable) {
-                throw new IncomparableException('Items are nor comparable');
-            }
+            $this->verifyComparable($item_2);
             return $item_2->compare($item_1);
         });
         return $comparables;
     }
 
+
+    // Filter methods
+
     /**
-     * Filter array of comparable items greater than condition
-     * @param  Comparable $condition  To compare against
-     * @param  array $comparables     List of objects implementing Comparable
-     * @throws IncomparableException  Thrown if any item in the list can not be compared
+     * Filter array of comparable items that equals condition
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    public function equals(Comparable $condition, array $comparables)
+    {
+        return $this->applyFilter('equals', $condition, $comparables);
+    }
+
+    /**
+     * Filter array of comparable items that are greater than condition
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
     public function greaterThan(Comparable $condition, array $comparables)
     {
-        $filtered = array_filter($comparables, function ($item) use ($condition) {
-            return $item->greaterThan($condition);
-        });
-        return array_values($filtered);
+        return $this->applyFilter('greaterThan', $condition, $comparables);
     }
 
     /**
-     * Filter array of comparable items greater than or equals condition
-     * @param  Comparable $condition  To compare against
-     * @param  array $comparables     List of objects implementing Comparable
-     * @throws IncomparableException  Thrown if any item in the list can not be compared
+     * Filter array of comparable items that are greater than or equals condition
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
     public function greaterThanOrEqual(Comparable $condition, array $comparables)
     {
-        $filtered = array_filter($comparables, function ($item) use ($condition) {
-            return $item->greaterThanOrEqual($condition);
+        return $this->applyFilter('greaterThanOrEqual', $condition, $comparables);
+    }
+
+    /**
+     * Filter array of comparable items that are less than condition
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    public function lessThan(Comparable $condition, array $comparables)
+    {
+        return $this->applyFilter('lessThan', $condition, $comparables);
+    }
+
+    /**
+     * Filter array of comparable items that are less than or equals condition
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    public function lessThanOrEqual(Comparable $condition, array $comparables)
+    {
+        return $this->applyFilter('lessThanOrEqual', $condition, $comparables);
+    }
+
+
+    // Select methods
+
+    /**
+     * Get minimum item from array of comparable items
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    public function min(array $comparables)
+    {
+        return $this->applyReduction('lessThan', $comparables);
+    }
+
+    /**
+     * Get maximum item from array of comparable items
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    public function max(array $comparables)
+    {
+        return $this->applyReduction('greaterThan', $comparables);
+    }
+
+
+    // Private internal methods
+
+    /**
+     * Verify input implements Comparable
+     * @param  Comparable $item       Item to verify
+     * @throws IncomparableException  Thrown if item do not implement Comparable
+     */
+    private function verifyComparable($item)
+    {
+        if (!$item instanceof Comparable) {
+            throw new IncomparableException('All items must implement Comparable');
+        }
+    }
+
+    /**
+     * Filter array of comparable items according to condition instance and method
+     * @param  string     $method       Comparison method to use
+     * @param  Comparable $condition    To compare against
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
+     */
+    private function applyFilter($method, Comparable $condition, array $comparables)
+    {
+        $filtered = array_filter($comparables, function ($item) use ($method, $condition) {
+            $this->verifyComparable($item);
+            return $item->$method($condition);
         });
         return array_values($filtered);
     }
 
-
-
-
-
-
-
     /**
-     * If $this is less than $that.
-     * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $this is less than $that
-     * @throws IncomparableException  Thrown if $this can not be compared with $that
+     * Reduce array of comparable items according comparison method
+     * @param  string     $method       Comparison method to use
+     * @param  array      $comparables  List of objects implementing Comparable
+     * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
-    public function lessThan($that)
+    private function applyReduction($method, array $comparables)
     {
-        return $this->compare($that) < 0;
-    }
-
-    /**
-     * If $this is less than or equal to $this.
-     * @param  mixed $that            The instance to compare with
-     * @return boolean                True if $this is less than or equal to $this
-     * @throws IncomparableException  Thrown if $this can not be compared with $that
-     */
-    public function lessThanOrEqual($that)
-    {
-        return $this->compare($that) <= 0;
+        return array_reduce($comparables, function ($item_1, $item_2) use ($method) {
+            if (is_null($item_1)) {
+                return $item_2;
+            }
+            $this->verifyComparable($item_1);
+            return $item_1->$method($item_2) ? $item_1 : $item_2;
+        });
     }
 }

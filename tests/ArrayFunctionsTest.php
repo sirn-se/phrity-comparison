@@ -53,6 +53,28 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test array_reduce
+     */
+    public function testReduce()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(4);
+        $comparables = [$a, $b, $c, $d];
+        $condition = new ComparableObject(5);
+
+        $reduced = array_reduce($comparables, function ($item_1, $item_2) {
+            if (is_null($item_1)) {
+                return $item_2;
+            }
+            return $item_1->lessThan($item_2) ? $item_1 : $item_2;
+        });
+
+        $this->assertEquals($b, $reduced);
+    }
+
+    /**
      * Test incomparable exception
      * @expectedException Phrity\Comparison\IncomparableException
      */
