@@ -3,7 +3,7 @@
 
 # Comparison
 
-Interfaces and helper trait for comparing objects.
+Interfaces and helper trait for comparing objects. Comparator utility class for sort and filter applications.
 
 Current version supports PHP `5.6` and `7.*`.
 
