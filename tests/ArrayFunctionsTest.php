@@ -81,19 +81,4 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($b, $reduced);
     }
-
-    /**
-     * Test incomparable exception
-     * @expectedException Phrity\Comparison\IncomparableException
-     */
-    public function testIncomparable()
-    {
-        $a = new ComparableObject(9);
-        $b = new \stdclass;
-        $comparables = [$a, $b];
-
-        $res = usort($comparables, function ($item_1, $item_2) {
-            return $item_1->compare($item_2);
-        });
-    }
 }
