@@ -1,9 +1,9 @@
 {
   "name": "phrity/comparison",
   "type": "library",
-  "description": "Interfaces and helper trait for comparing objects.",
+  "description": "Interfaces and helper trait for comparing objects. Comparator for sort and filter applications.",
   "homepage": "https://phrity.sirn.se/comparison",
-  "keywords": ["comparison", "equalable", "comparable"],
+  "keywords": ["comparison", "equalable", "comparable", "comparator", "sort", "filter"],
   "license": "MIT",
   "authors": [
     {

@@ -15,6 +15,14 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
 {
 
     /**
+     * Set up for all tests
+     */
+    public function setUp()
+    {
+        error_reporting(-1);
+    }
+
+    /**
      * Test equals
      */
     public function testEquals()

@@ -41,6 +41,9 @@ class ComparableObject implements Comparable
      */
     public function compare($that)
     {
+        if (!$that instanceof Comparable) {
+            throw new IncomparableException('Can not be compared');
+        }
         if (!is_integer($that->value)) {
             throw new IncomparableException('Can not be compared');
         }
