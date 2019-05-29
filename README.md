@@ -94,7 +94,7 @@ trait Phrity\Comparison\ComparisonTrait
 
 ## The Comparator class
 
-Utility class to sort and filter array objects that implement the Comparable interface.
+Utility class to sort and filter array objects that implement the `Comparable` interface.
 
 ###  Class synopsis
 
