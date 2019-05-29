@@ -188,4 +188,22 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([$a, $b, $c, $d], $comparables);
         $this->assertEquals($b, $filtered);
     }
+
+    /**
+     * Test maximum
+     */
+    public function testMax()
+    {
+        $a = new ComparableObject(9);
+        $b = new ComparableObject(2);
+        $c = new ComparableObject(7);
+        $d = new ComparableObject(4);
+        $comparables = [$a, $b, $c, $d];
+
+        $comparator = new Comparator();
+        $filtered = $comparator->max($comparables);
+
+        $this->assertEquals([$a, $b, $c, $d], $comparables);
+        $this->assertEquals($a, $filtered);
+    }
 }
