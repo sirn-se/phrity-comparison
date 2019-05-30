@@ -94,7 +94,7 @@ trait Phrity\Comparison\ComparisonTrait
 
 ## The Comparator class
 
-Utility class to sort and filter array objects that implement the Comparable interface.
+Utility class to sort and filter array objects that implement the `Comparable` interface.
 
 ###  Class synopsis
 
@@ -118,7 +118,7 @@ class Phrity\Comparison\Comparator {
 
 ```php
 $comparables = [$v2, $v1, $v4, $v3];
-$contition = $v3;
+$condition = $v3;
 $comparator = new Comparator();
 
 // Sort and reverse sort array of Comparable
@@ -126,11 +126,11 @@ $comparator->sort($comparables); // [$v1, $v2, $v3, $v4]
 $comparator->rsort($comparables); // [$v4, $v3, $v2, $v1]
 
 // Filter array of Comparable using a Comparable as condition
-$comparator->equals($contition, $comparables); // [$v3]
-$comparator->greaterThan($contition, $comparables); // [$v4]
-$comparator->greaterThanOrEqual($contition, $comparables); // [$v4, $v3]
-$comparator->lessThan($contition, $comparables); // [$v2, $v1]
-$comparator->lessThanOrEqual($contition, $comparables); // [$v2, $v1, $v3]
+$comparator->equals($condition, $comparables); // [$v3]
+$comparator->greaterThan($condition, $comparables); // [$v4]
+$comparator->greaterThanOrEqual($condition, $comparables); // [$v4, $v3]
+$comparator->lessThan($condition, $comparables); // [$v2, $v1]
+$comparator->lessThanOrEqual($condition, $comparables); // [$v2, $v1, $v3]
 
 // Select min/max instance
 $comparator->min($comparables); // $v1
