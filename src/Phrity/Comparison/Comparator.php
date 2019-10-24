@@ -112,10 +112,10 @@ class Comparator
     /**
      * Get minimum item from array of comparable items
      * @param  array      $comparables  List of objects implementing Comparable
-     * @return object                   The resolved instance
+     * @return Comparable               The resolved instance
      * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
-    public function min(array $comparables): object
+    public function min(array $comparables): Comparable
     {
         return $this->applyReduction('lessThan', $comparables);
     }
@@ -123,10 +123,10 @@ class Comparator
     /**
      * Get maximum item from array of comparable items
      * @param  array      $comparables  List of objects implementing Comparable
-     * @return object                   The resolved instance
+     * @return Comparable               The resolved instance
      * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
-    public function max(array $comparables): object
+    public function max(array $comparables): Comparable
     {
         return $this->applyReduction('greaterThan', $comparables);
     }
@@ -167,10 +167,10 @@ class Comparator
      * Reduce array of comparable items according comparison method
      * @param  string     $method       Comparison method to use
      * @param  array      $comparables  List of objects implementing Comparable
-     * @return object                   The resolved instance
+     * @return Comparable               The resolved instance
      * @throws IncomparableException    Thrown if any item in the list can not be compared
      */
-    private function applyReduction($method, array $comparables): object
+    private function applyReduction($method, array $comparables): Comparable
     {
         return array_reduce($comparables, function ($item_1, $item_2) use ($method) {
             if (is_null($item_1)) {
