@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * File for comparison test class.
  * @package Phrity > Comparison
@@ -6,18 +8,18 @@
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for Comparator utility.
  */
-class ComparatorTest extends PHPUnit_Framework_TestCase
+class ComparatorTest extends TestCase
 {
 
     /**
      * Set up for all tests
      */
-    public function setUp()
+    public function setUp(): void
     {
         error_reporting(-1);
     }
@@ -25,7 +27,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test sort
      */
-    public function testSort()
+    public function testSort(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -43,7 +45,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test reversed sort
      */
-    public function testRsort()
+    public function testRsort(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -60,34 +62,34 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test incomparable exception
-     * @expectedException Phrity\Comparison\IncomparableException
      */
-    public function testIncomparableSort()
+    public function testIncomparableSort(): void
     {
         $a = new ComparableObject(9);
         $b = new \stdclass;
 
         $comparator = new Comparator();
+        $this->expectException('Phrity\Comparison\IncomparableException');
         $sorted = $comparator->sort([$a, $b]);
     }
 
     /**
      * Test incomparable exception
-     * @expectedException Phrity\Comparison\IncomparableException
      */
-    public function testIncomparableRsort()
+    public function testIncomparableRsort(): void
     {
         $a = new ComparableObject(9);
         $b = new \stdclass;
 
         $comparator = new Comparator();
+        $this->expectException('Phrity\Comparison\IncomparableException');
         $sorted = $comparator->rsort([$a, $b]);
     }
 
     /**
      * Test eqauls filter
      */
-    public function testEquals()
+    public function testEquals(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -106,7 +108,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test greater than filter
      */
-    public function testGreaterThanFilter()
+    public function testGreaterThanFilter(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -125,7 +127,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test greater than or equals filter
      */
-    public function testGreaterThanOrEqualFilter()
+    public function testGreaterThanOrEqualFilter(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -144,7 +146,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test less than filter
      */
-    public function testLessThanFilter()
+    public function testLessThanFilter(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -163,7 +165,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test less than or equals filter
      */
-    public function testLessThanOrEqualFilter()
+    public function testLessThanOrEqualFilter(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -182,7 +184,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test minimum
      */
-    public function testMin()
+    public function testMin(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -200,7 +202,7 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     /**
      * Test maximum
      */
-    public function testMax()
+    public function testMax(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);

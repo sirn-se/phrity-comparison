@@ -39,7 +39,7 @@ class ComparableObject implements Comparable
      *                                Must return  1 if $this is greater than $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function compare($that)
+    public function compare($that): int
     {
         if (!$that instanceof Comparable) {
             throw new IncomparableException('Can not be compared');
