@@ -5,7 +5,7 @@
 
 Interfaces and helper trait for comparing objects. Comparator utility class for sort and filter applications.
 
-Current version supports PHP `7.1`.
+Current version supports PHP `^7.1`.
 
 ## Installation
 
