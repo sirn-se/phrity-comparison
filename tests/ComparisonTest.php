@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * File for comparison test class.
  * @package Phrity > Comparison
@@ -6,18 +8,18 @@
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for comparison tests.
  */
-class ComparisonTest extends PHPUnit_Framework_TestCase
+class ComparisonTest extends TestCase
 {
 
     /**
      * Set up for all tests
      */
-    public function setUp()
+    public function setUp(): void
     {
         error_reporting(-1);
     }
@@ -25,7 +27,7 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
     /**
      * Test equals
      */
-    public function testEquals()
+    public function testEquals(): void
     {
         $a = new ComparableObject(1);
         $b = new ComparableObject(1);
@@ -41,7 +43,7 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
     /**
      * Test less than
      */
-    public function testLessThan()
+    public function testLessThan(): void
     {
         $a = new ComparableObject(1);
         $b = new ComparableObject(2);
@@ -57,7 +59,7 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
     /**
      * Test greater than
      */
-    public function testGreaterThan()
+    public function testGreaterThan(): void
     {
         $a = new ComparableObject(2);
         $b = new ComparableObject(1);
@@ -72,13 +74,13 @@ class ComparisonTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test incomparable exception
-     * @expectedException Phrity\Comparison\IncomparableException
      */
-    public function testIncomparable()
+    public function testIncomparable(): void
     {
         $a = new ComparableObject(1);
         $b = new ComparableObject('invalid');
 
+        $this->expectException('Phrity\Comparison\IncomparableException');
         $this->assertEquals(1, $a->compare($b));
     }
 }
