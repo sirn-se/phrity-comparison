@@ -102,15 +102,16 @@ Utility class to sort and filter array objects that implement the `Comparable` i
 class Phrity\Comparison\Comparator {
 
     /* Methods */
-    public sort(array $comparables) : array
-    public rsort(array $comparables) : array
-    public equals(Comparable $condition, array $comparables) : array
-    public greaterThan(Comparable $condition, array $comparables) : array
-    public greaterThanOrEqual(Comparable $condition, array $comparables) : array
-    public lessThan(Comparable $condition, array $comparables) : array
-    public lessThanOrEqual(Comparable $condition, array $comparables) : array
-    public min(array $comparables) : Comparable
-    public max(array $comparables) : Comparable
+    public __construct(array $comparables = null)
+    public sort(array $comparables = null) : array
+    public rsort(array $comparables = null) : array
+    public equals(Comparable $condition, array $comparables = null) : array
+    public greaterThan(Comparable $condition, array $comparables = null) : array
+    public greaterThanOrEqual(Comparable $condition, array $comparables = null) : array
+    public lessThan(Comparable $condition, array $comparables = null) : array
+    public lessThanOrEqual(Comparable $condition, array $comparables = null) : array
+    public min(array $comparables = null) : Comparable
+    public max(array $comparables = null) : Comparable
 }
 ```
 
@@ -135,6 +136,13 @@ $comparator->lessThanOrEqual($condition, $comparables); // [$v2, $v1, $v3]
 // Select min/max instance
 $comparator->min($comparables); // $v1
 $comparator->max($comparables); // $v4
+
+// Can also "store" comparables for re-use in multiple operations
+$comparables = [$v2, $v1, $v4, $v3];
+$comparator = new Comparator($comparables);
+$comparator->sort(); // [$v1, $v2, $v3, $v4]
+$comparator->equals($condition); // [$v3]
+$comparator->min(); // $v1
 ```
 
 ## The IncomparableException class
@@ -162,5 +170,6 @@ class Phrity\Comparison\IncomparableException
 
 ## Versions
 
+* `1.2` - The `Comparator` supports stored content for multiple operations (PHP ^7.1)
 * `1.1` - The `Comparator` class for sort and filter (PHP 5.6|^7.0)
 * `1.0` - `Equalable` and `Comparable` interface, `ComparisonTrait` trait (PHP 5.6|^7.0)
