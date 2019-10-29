@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * File for comparison test class.
  * @package Phrity > Comparison
@@ -6,18 +8,18 @@
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for array functions tests.
  */
-class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
+class ArrayFunctionsTest extends TestCase
 {
 
     /**
      * Set up for all tests
      */
-    public function setUp()
+    public function setUp(): void
     {
         error_reporting(-1);
     }
@@ -25,7 +27,7 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
     /**
      * Test usort
      */
-    public function testSort()
+    public function testSort(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -44,7 +46,7 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
     /**
      * Test array_filter
      */
-    public function testFilter()
+    public function testFilter(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);
@@ -63,7 +65,7 @@ class ArrayFunctionsTest extends PHPUnit_Framework_TestCase
     /**
      * Test array_reduce
      */
-    public function testReduce()
+    public function testReduce(): void
     {
         $a = new ComparableObject(9);
         $b = new ComparableObject(2);

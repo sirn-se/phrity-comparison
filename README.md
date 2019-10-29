@@ -5,7 +5,7 @@
 
 Interfaces and helper trait for comparing objects. Comparator utility class for sort and filter applications.
 
-Current version supports PHP `5.6` and `7.*`.
+Current version supports PHP `^7.1`.
 
 ## Installation
 
@@ -162,5 +162,5 @@ class Phrity\Comparison\IncomparableException
 
 ## Versions
 
-* `1.1` - The `Comparator` class for sort and filter
-* `1.0` - `Equalable` and `Comparable` interface, `ComparisonTrait` trait
+* `1.1` - The `Comparator` class for sort and filter (PHP 5.6|^7.0)
+* `1.0` - `Equalable` and `Comparable` interface, `ComparisonTrait` trait (PHP 5.6|^7.0)
