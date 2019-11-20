@@ -1,8 +1,10 @@
 <?php
+
 /**
  * File for IncomparableException.
  * @package Phrity > Comparison
  */
+
 namespace Phrity\Comparison;
 
 /**

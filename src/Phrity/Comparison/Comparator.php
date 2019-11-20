@@ -1,8 +1,10 @@
 <?php
+
 /**
  * File for Comparator.
  * @package Phrity > Comparison
  */
+
 namespace Phrity\Comparison;
 
 /**
