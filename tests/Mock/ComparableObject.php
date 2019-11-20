@@ -1,14 +1,16 @@
 <?php
+
 /**
  * File for mock class.
  * @package Phrity > Comparison
  */
+
 namespace Mock;
 
-use \Phrity\Comparison\Equalable;
-use \Phrity\Comparison\Comparable;
-use \Phrity\Comparison\ComparisonTrait;
-use \Phrity\Comparison\IncomparableException;
+use Phrity\Comparison\Equalable;
+use Phrity\Comparison\Comparable;
+use Phrity\Comparison\ComparisonTrait;
+use Phrity\Comparison\IncomparableException;
 
 /**
  * Mock class for comparison tests.

@@ -1,10 +1,12 @@
 <?php
-declare(strict_types=1);
 
 /**
  * File for comparison test class.
  * @package Phrity > Comparison
  */
+
+declare(strict_types=1);
+
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;

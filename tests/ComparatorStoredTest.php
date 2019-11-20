@@ -1,10 +1,12 @@
 <?php
-declare(strict_types=1);
 
 /**
  * File for comparison test class.
  * @package Phrity > Comparison
  */
+
+declare(strict_types=1);
+
 namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
@@ -66,7 +68,7 @@ class ComparatorStoredTest extends TestCase
     public function testIncomparableSort(): void
     {
         $a = new ComparableObject(9);
-        $b = new \stdclass;
+        $b = new \stdclass();
 
         $comparator = new Comparator([$a, $b]);
         $this->expectException('Phrity\Comparison\IncomparableException');
@@ -79,7 +81,7 @@ class ComparatorStoredTest extends TestCase
     public function testIncomparableRsort(): void
     {
         $a = new ComparableObject(9);
-        $b = new \stdclass;
+        $b = new \stdclass();
 
         $comparator = new Comparator([$a, $b]);
         $this->expectException('Phrity\Comparison\IncomparableException');
