@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sirn-se/phrity-comparison.svg?branch=master)](https://travis-ci.org/sirn-se/phrity-comparison)
+[![Build Status](https://travis-ci.com/sirn-se/phrity-comparison.svg?branch=master)](https://travis-ci.com/sirn-se/phrity-comparison)
 [![Coverage Status](https://coveralls.io/repos/github/sirn-se/phrity-comparison/badge.svg?branch=master)](https://coveralls.io/github/sirn-se/phrity-comparison?branch=master)
 
 # Comparison
