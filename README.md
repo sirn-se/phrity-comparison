@@ -168,11 +168,12 @@ class Phrity\Comparison\IncomparableException
 }
 ```
 
+
 ## Versions
 
 | Version | PHP | |
 | --- | --- | --- |
-| `1.3` | `^7.1|^8.0` |  |
+| `1.3` | `^7.1\|^8.0` |  |
 | `1.2` | `^7.1` | The `Comparator` supports stored content for multiple operations |
 | `1.1` | `>=5.6` | The `Comparator` class for sort and filter |
 | `1.0` | `>=5.6` | `Equalable` and `Comparable` interface, `ComparisonTrait` trait |
