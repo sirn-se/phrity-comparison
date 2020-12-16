@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/sirn-se/phrity-comparison.svg?branch=master)](https://travis-ci.org/sirn-se/phrity-comparison)
+[![Build Status](https://travis-ci.com/sirn-se/phrity-comparison.svg?branch=master)](https://travis-ci.com/sirn-se/phrity-comparison)
 [![Coverage Status](https://coveralls.io/repos/github/sirn-se/phrity-comparison/badge.svg?branch=master)](https://coveralls.io/github/sirn-se/phrity-comparison?branch=master)
 
 # Comparison
 
 Interfaces and helper trait for comparing objects. Comparator utility class for sort and filter applications.
 
-Current version supports PHP `^7.1`.
+Current version supports PHP `^7.1|^8.0`.
 
 ## Installation
 
@@ -168,8 +168,12 @@ class Phrity\Comparison\IncomparableException
 }
 ```
 
+
 ## Versions
 
-* `1.2` - The `Comparator` supports stored content for multiple operations (PHP ^7.1)
-* `1.1` - The `Comparator` class for sort and filter (PHP 5.6|^7.0)
-* `1.0` - `Equalable` and `Comparable` interface, `ComparisonTrait` trait (PHP 5.6|^7.0)
+| Version | PHP | |
+| --- | --- | --- |
+| `1.3` | `^7.1\|^8.0` |  |
+| `1.2` | `^7.1` | The `Comparator` supports stored content for multiple operations |
+| `1.1` | `>=5.6` | The `Comparator` class for sort and filter |
+| `1.0` | `>=5.6` | `Equalable` and `Comparable` interface, `ComparisonTrait` trait |
