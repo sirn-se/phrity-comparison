@@ -17,7 +17,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ComparatorStoredTest extends TestCase
 {
-
     /**
      * Set up for all tests
      */
