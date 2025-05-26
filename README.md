@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logotype.png" alt="Phrity Net Uri" width="100%"></p>
+
 [![Build Status](https://github.com/sirn-se/phrity-comparison/actions/workflows/acceptance.yml/badge.svg)](https://github.com/sirn-se/phrity-comparison/actions)
 [![Coverage Status](https://coveralls.io/repos/github/sirn-se/phrity-comparison/badge.svg?branch=master)](https://coveralls.io/github/sirn-se/phrity-comparison?branch=master)
 

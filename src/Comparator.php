@@ -32,7 +32,7 @@ class Comparator
      * @return array<Comparable> The sorted list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function sort(array $comparables = null): array
+    public function sort(array|null $comparables = null): array
     {
         $comparables = $comparables ?: $this->comparables;
         usort($comparables, function ($item_1, $item_2) {
@@ -48,7 +48,7 @@ class Comparator
      * @return array<Comparable> The sorted list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function rsort(array $comparables = null): array
+    public function rsort(array|null $comparables = null): array
     {
         $comparables = $comparables ?: $this->comparables;
         usort($comparables, function ($item_1, $item_2) {
@@ -68,7 +68,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function equals(Comparable $condition, array $comparables = null): array
+    public function equals(Comparable $condition, array|null $comparables = null): array
     {
         return $this->applyFilter('equals', $condition, $comparables);
     }
@@ -80,7 +80,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function greaterThan(Comparable $condition, array $comparables = null): array
+    public function greaterThan(Comparable $condition, array|null $comparables = null): array
     {
         return $this->applyFilter('greaterThan', $condition, $comparables);
     }
@@ -92,7 +92,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function greaterThanOrEqual(Comparable $condition, array $comparables = null): array
+    public function greaterThanOrEqual(Comparable $condition, array|null $comparables = null): array
     {
         return $this->applyFilter('greaterThanOrEqual', $condition, $comparables);
     }
@@ -104,7 +104,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function lessThan(Comparable $condition, array $comparables = null): array
+    public function lessThan(Comparable $condition, array|null $comparables = null): array
     {
         return $this->applyFilter('lessThan', $condition, $comparables);
     }
@@ -116,7 +116,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function lessThanOrEqual(Comparable $condition, array $comparables = null): array
+    public function lessThanOrEqual(Comparable $condition, array|null $comparables = null): array
     {
         return $this->applyFilter('lessThanOrEqual', $condition, $comparables);
     }
@@ -130,7 +130,7 @@ class Comparator
      * @return Comparable|null The resolved instance
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function min(array $comparables = null): Comparable|null
+    public function min(array|null $comparables = null): Comparable|null
     {
         return $this->applyReduction('lessThan', $comparables);
     }
@@ -141,7 +141,7 @@ class Comparator
      * @return Comparable|null The resolved instance
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    public function max(array $comparables = null): Comparable|null
+    public function max(array|null $comparables = null): Comparable|null
     {
         return $this->applyReduction('greaterThan', $comparables);
     }
@@ -169,7 +169,7 @@ class Comparator
      * @return array<Comparable> The filtered list
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    private function applyFilter(string $method, Comparable $condition, array $comparables = null): array
+    private function applyFilter(string $method, Comparable $condition, array|null $comparables = null): array
     {
         $comparables = $comparables ?: $this->comparables;
         $filtered = array_filter($comparables, function ($item) use ($method, $condition) {
@@ -186,7 +186,7 @@ class Comparator
      * @return Comparable|null The resolved instance
      * @throws IncomparableException Thrown if any item in the list can not be compared
      */
-    private function applyReduction(string $method, array $comparables = null): Comparable|null
+    private function applyReduction(string $method, array|null $comparables = null): Comparable|null
     {
         $comparables = $comparables ?: $this->comparables;
         return array_reduce($comparables, function ($item_1, $item_2) use ($method) {
