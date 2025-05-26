@@ -7,9 +7,11 @@
 
 namespace Phrity\Comparison;
 
+use InvalidArgumentException;
+
 /**
  * Exception that should be thrown when instances can not be compared.
  */
-class IncomparableException extends \InvalidArgumentException
+class IncomparableException extends InvalidArgumentException
 {
 }

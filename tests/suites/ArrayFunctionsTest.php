@@ -36,11 +36,9 @@ class ArrayFunctionsTest extends TestCase
         $d = new ComparableObject(4);
         $comparables = [$a, $b, $c, $d];
 
-        $res = usort($comparables, function ($item_1, $item_2) {
+        usort($comparables, function ($item_1, $item_2) {
             return $item_1->compare($item_2);
         });
-
-        $this->assertTrue($res);
         $this->assertEquals([$b, $d, $c, $a], $comparables);
     }
 

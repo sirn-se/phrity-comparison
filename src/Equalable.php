@@ -18,5 +18,5 @@ interface Equalable
      * @return boolean                True if $this is equal to $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function equals($that): bool;
+    public function equals(mixed $that): bool;
 }

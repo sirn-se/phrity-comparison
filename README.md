@@ -173,6 +173,7 @@ class Phrity\Comparison\IncomparableException
 
 | Version | PHP | |
 | --- | --- | --- |
+| `1.4` | `^8.1` |  |
 | `1.3` | `^7.1\|^8.0` |  |
 | `1.2` | `^7.1` | The `Comparator` supports stored content for multiple operations |
 | `1.1` | `>=5.6` | The `Comparator` class for sort and filter |

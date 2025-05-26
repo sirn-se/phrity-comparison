@@ -18,7 +18,7 @@ trait ComparisonTrait
      * @return boolean                True if $this is equal to $that
      * @throws IncomparableException  Thrown if $this can not be compared with $that
      */
-    public function equals($that): bool
+    public function equals(mixed $that): bool
     {
         return $this->compare($that) == 0;
     }
@@ -29,7 +29,7 @@ trait ComparisonTrait
      * @return boolean                True if $this is greater than $that
      * @throws IncomparableException  Thrown if $this can not be compared with $that
      */
-    public function greaterThan($that): bool
+    public function greaterThan(mixed $that): bool
     {
         return $this->compare($that) > 0;
     }
@@ -40,7 +40,7 @@ trait ComparisonTrait
      * @return boolean                True if $this is greater than or equal to $that
      * @throws IncomparableException  Thrown if $this can not be compared with $that
      */
-    public function greaterThanOrEqual($that): bool
+    public function greaterThanOrEqual(mixed $that): bool
     {
         return $this->compare($that) >= 0;
     }
@@ -51,7 +51,7 @@ trait ComparisonTrait
      * @return boolean                True if $this is less than $that
      * @throws IncomparableException  Thrown if $this can not be compared with $that
      */
-    public function lessThan($that): bool
+    public function lessThan(mixed $that): bool
     {
         return $this->compare($that) < 0;
     }
@@ -62,7 +62,7 @@ trait ComparisonTrait
      * @return boolean                True if $this is less than or equal to $this
      * @throws IncomparableException  Thrown if $this can not be compared with $that
      */
-    public function lessThanOrEqual($that): bool
+    public function lessThanOrEqual(mixed $that): bool
     {
         return $this->compare($that) <= 0;
     }
