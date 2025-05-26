@@ -11,6 +11,7 @@ namespace Phrity\Comparison;
 
 use Mock\ComparableObject;
 use PHPUnit\Framework\TestCase;
+use stdclass;
 
 /**
  * Test class for Comparator utility using stored content option.
@@ -67,10 +68,12 @@ class ComparatorStoredTest extends TestCase
     public function testIncomparableSort(): void
     {
         $a = new ComparableObject(9);
-        $b = new \stdclass();
+        $b = new stdclass();
 
+        /** @phpstan-ignore argument.type */
         $comparator = new Comparator([$a, $b]);
-        $this->expectException('Phrity\Comparison\IncomparableException');
+        $this->expectException(IncomparableException::class);
+        $this->expectExceptionMessage('Can not be compared');
         $sorted = $comparator->sort();
     }
 
@@ -80,10 +83,12 @@ class ComparatorStoredTest extends TestCase
     public function testIncomparableRsort(): void
     {
         $a = new ComparableObject(9);
-        $b = new \stdclass();
+        $b = new stdclass();
 
+        /** @phpstan-ignore argument.type */
         $comparator = new Comparator([$a, $b]);
-        $this->expectException('Phrity\Comparison\IncomparableException');
+        $this->expectException(IncomparableException::class);
+        $this->expectExceptionMessage('All items must implement Comparable');
         $sorted = $comparator->rsort();
     }
 

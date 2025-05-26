@@ -20,7 +20,7 @@ interface Comparable extends Equalable
      *                                Must return  1 if $this is greater than $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function compare($that): int;
+    public function compare(mixed $that): int;
 
     /**
      * If $this is greater than $that.
@@ -28,7 +28,7 @@ interface Comparable extends Equalable
      * @return boolean                True if $this is greater than $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function greaterThan($that): bool;
+    public function greaterThan(mixed $that): bool;
 
     /**
      * If $this is greater than or equal to $that.
@@ -36,7 +36,7 @@ interface Comparable extends Equalable
      * @return boolean                True if $this is greater than or equal to $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function greaterThanOrEqual($that): bool;
+    public function greaterThanOrEqual(mixed $that): bool;
 
     /**
      * If $this is less than $that.
@@ -44,7 +44,7 @@ interface Comparable extends Equalable
      * @return boolean                True if $this is less than $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function lessThan($that): bool;
+    public function lessThan(mixed $that): bool;
 
     /**
      * If $this is less than or equal to $this.
@@ -52,5 +52,5 @@ interface Comparable extends Equalable
      * @return boolean                True if $this is less than or equal to $this
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function lessThanOrEqual($that): bool;
+    public function lessThanOrEqual(mixed $that): bool;
 }

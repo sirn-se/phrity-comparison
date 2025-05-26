@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logotype.png" alt="Phrity Net Uri" width="100%"></p>
+
 [![Build Status](https://github.com/sirn-se/phrity-comparison/actions/workflows/acceptance.yml/badge.svg)](https://github.com/sirn-se/phrity-comparison/actions)
 [![Coverage Status](https://coveralls.io/repos/github/sirn-se/phrity-comparison/badge.svg?branch=master)](https://coveralls.io/github/sirn-se/phrity-comparison?branch=master)
 
@@ -173,6 +175,7 @@ class Phrity\Comparison\IncomparableException
 
 | Version | PHP | |
 | --- | --- | --- |
+| `1.4` | `^8.1` |  |
 | `1.3` | `^7.1\|^8.0` |  |
 | `1.2` | `^7.1` | The `Comparator` supports stored content for multiple operations |
 | `1.1` | `>=5.6` | The `Comparator` class for sort and filter |

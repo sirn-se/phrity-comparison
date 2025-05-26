@@ -7,10 +7,11 @@
 
 namespace Mock;
 
-use Phrity\Comparison\Equalable;
-use Phrity\Comparison\Comparable;
-use Phrity\Comparison\ComparisonTrait;
-use Phrity\Comparison\IncomparableException;
+use Phrity\Comparison\{
+    Comparable,
+    ComparisonTrait,
+    IncomparableException,
+};
 
 /**
  * Mock class for comparison tests.
@@ -22,13 +23,13 @@ class ComparableObject implements Comparable
     /**
      * A value used for comparison
      */
-    private $value;
+    private mixed $value;
 
     /**
      * Constructor for mock class
      * @param  mixed $value A value
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         $this->value = $value;
     }
@@ -41,9 +42,9 @@ class ComparableObject implements Comparable
      *                                Must return  1 if $this is greater than $that
      * @throws IncomparableException  Must throw if $this can not be compared with $that
      */
-    public function compare($that): int
+    public function compare(mixed $that): int
     {
-        if (!$that instanceof Comparable) {
+        if (!$that instanceof self) {
             throw new IncomparableException('Can not be compared');
         }
         if (!is_integer($that->value)) {
